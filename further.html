@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <title>Validation form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>User Registraction form</h1>
+                <p>All fields are required</p>
+
+                <form action="#">
+                    <div >
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Username" id="userName">
+                        <p id="emptyUser" class = "text-danger"></p>
+                    </div>
+                   
+                    <div  class="pb-3">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" id="pwd1">
+                    </div>
+
+                    <div>
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" id="pwd2">
+                        <p id="matchPassword" class = "text-danger"></p>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="Validation()">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Validation(){
+            var name = document.getElementById('userName').value;
+            var password = document.getElementById('pwd1').value;
+            var password2 = document.getElementById('pwd2').value;
+
+             if(name == ''){
+                document.getElementById('emptyUser').innerHTML = 'username cannot be empty';
+                document.getElementById('userName').style.border = '1px solid red';
+                document.getElementById('pwd1').style.border = '1px solid red';
+                document.getElementById('pwd2').style.border = '1px solid red';
+            }else if(password == '' || password2 == ''){
+                document.getElementById('matchPassword').innerHTML = 'password cannot be empty'
+                document.getElementById('userName').style.border = '1px solid rgba(0, 0, 0, 0.1)';
+                document.getElementById('emptyUser').innerHTML = '';
+                document.getElementById('pwd1').style.border = '1px solid red';
+                document.getElementById('pwd2').style.border = '1px solid red';
+            }else if(password != password2){
+                document.getElementById('matchPassword').innerHTML = 'The two passwords must match';
+                document.getElementById('pwd1').style.border = '1px solid red';
+                document.getElementById('pwd2').style.border = '1px solid red';
+            }else{
+                document.getElementById('userName').style.border = '1px solid rgba(0, 0, 0, 0.1)';
+                document.getElementById('pwd1').style.border = '1px solid rgba(0, 0, 0, 0.1)';
+                document.getElementById('pwd2').style.border = '1px solid rgba(0, 0, 0, 0.1)';
+                document.getElementById('matchPassword').innerHTML = '';
+                alert('Registraction Successful');
+            }
+        }
+    </script>
+</body>
+</html>

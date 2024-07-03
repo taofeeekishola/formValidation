@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <title>Validation form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>User Registraction form</h1>
+                <p>All fields are required</p>
+
+                <form action="#">
+                    <div class="py-2">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Username" id="userName">
+                    </div>
+                    
+                    <div  class="py-2">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" id="pwd1">
+                    </div>
+
+                    <div  class="py-2">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" id="pwd2">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="Validation()">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Validation(){
+            var name = document.getElementById('userName').value;
+            var password = document.getElementById('pwd1').value;
+            var password2 = document.getElementById('pwd2').value;
+
+            if(name == ''){
+                alert('username cannot be empty');
+            }else if(password == '' || password2 == ''){
+                alert('password cannot be empty');
+            }else if(password != password2){
+                alert('The two password much match');
+            }else{
+                alert('Registraction Successful');
+            }
+        }
+    </script>
+</body>
+</html>
